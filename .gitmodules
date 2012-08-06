@@ -1,0 +1,12 @@
+[submodule "pt_api"]
+	path = pt_api
+	url = git@github.com:tubav/pt_api.git
+[submodule "ipfix4java"]
+	path = ipfix4java
+	url = git@github.com:tubav/ipfix4java.git
+[submodule "pt_matcher"]
+	path = pt_matcher
+	url = git@github.com:tubav/pt_matcher.git
+[submodule "pt_netview"]
+	path = pt_netview
+	url = git@github.com:tubav/pt_netview.git
