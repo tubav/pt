@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+	<profiles>
+		<profile>
+			<id>pt</id>
+			<properties>
+				<pt.releases.repo.url>scpexe://svnsrv.fokus.fraunhofer.de/export/cc/ccnet/pt/var/www/m2</pt.releases.repo.url>
+				<pt.snapshots.repo.url>scpexe://svnsrv.fokus.fraunhofer.de/export/cc/ccnet/pt/var/www/m2</pt.snapshots.repo.url>
+				<pt.site.repo.url>scpexe://svnsrv.fokus.fraunhofer.de/export/cc/ccnet/pt/var/www/site</pt.site.repo.url>
+			</properties>
+     <repositories>
+        <repository>
+          <id>pt-repo</id>
+          <url>https://svnsrv.fokus.fraunhofer.de/www/cc/ccnet/pt/m2/</url>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </repository>
+      </repositories>
+		</profile>
+	</profiles>
+	<activeProfiles>
+		<!-- make these profiles active all the time -->
+		<activeProfile>pt</activeProfile>
+	</activeProfiles>
+</settings>

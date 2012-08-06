@@ -1,0 +1,57 @@
+#!/bin/sh
+# FhG-FOKUS NETwork Research
+#
+# Run java classes using .m2classpath
+# 
+# Used DEBUG=1 for debugging; 
+# ==[ CONFIG ]==
+
+# ==[ END CONFIG ]==
+class=$1
+if [ "$class" = "" ]; then
+  cat <<EOT
+=======[ m2 class runner ]=======
+
+USAGE: scripts/m2run java.class.name 
+
+  Examples:
+  
+  > scripts/m2run test.NmeTest
+
+  - if you can create a .m2prefix file to avoid typing the whole
+    path:
+
+  > cat .m2prefix
+  test
+  > scripts/m2run NmeTest
+ 
+  - additional arguments to java are passed via .m2args file
+  
+EOT
+exit 1
+fi
+# checking for package prefix
+if [ -r .m2prefix ]; then
+  m2prefix=`head -1 .m2prefix`
+  class="$m2prefix.$class"
+fi
+if [ -r .m2args ]; then
+  m2args=`head -1 .m2args`
+fi
+
+
+
+
+CLASSPATH_FILE=.m2classpath
+if [ ! -f $CLASSPATH_FILE ]; then
+  echo "You need to run  scripts/m2classpath.sh all before using this script. "
+fi
+echo "# Launching $class..."
+classpath=$cptest:`cat $CLASSPATH_FILE`:$CLASSPATH
+#cmd="java -Dsun.java2d.opengl=True -Dfile.encoding=UTF-8 $m2args -classpath $classpath  $class $* "
+# it was slower using opengl engine
+cmd="java -Xmx256m -Dfile.encoding=UTF-8 $m2args -classpath $classpath  $class $* "
+
+test -z $DEBUG || echo $cmd
+exec $cmd
+
