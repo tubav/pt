@@ -37,10 +37,9 @@
 
     <modules>
         <module>ipfix4java</module>
-        <module>packetmatcher</module>
-        <module>worldmap</module>
-        <module>pt-api</module>
-        <module>netview</module>
+        <module>pt_matcher</module>
+        <module>pt_api</module>
+        <module>pt_netview</module>
     </modules>
 
     <build>
