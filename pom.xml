@@ -8,6 +8,19 @@
     <name>Parent POM for netview and related pt projects </name>
     <packaging>pom</packaging>
 
+    <distributionManagement>
+        <repository>
+            <id>tubav-pt</id>
+            <name>tubav repository</name>
+            <url>https://services.av.tu-berlin.de/nexus/content/repositories/packettracking/</url>
+        </repository>
+        <snapshotRepository>
+            <id>pt-tubav</id>
+            <name>tubav repository</name>
+            <url>https://services.av.tu-berlin.de/nexus/content/repositories/packettracking/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
     <modules>
         <module>ipfix4java</module>
         <module>pt_matcher</module>
